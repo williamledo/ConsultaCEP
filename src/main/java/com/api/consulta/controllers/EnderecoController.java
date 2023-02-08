@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.consulta.DTO.Cep;
+import com.api.consulta.DTO.EnderecoDTO;
 import com.api.consulta.entities.Endereco;
 import com.api.consulta.entities.ViaCep;
 import com.google.gson.Gson;
@@ -21,10 +22,10 @@ import com.google.gson.Gson;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("enderecos")
+@RequestMapping("consulta")
 public class EnderecoController {
 
-	@PostMapping(value = "/")
+	@PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid Cep dados) throws Exception {
 
 		String mascaraCep = dados.cep();
@@ -48,7 +49,7 @@ public class EnderecoController {
         	
         	 Endereco endereco = new Endereco(response);
              
-     		return ResponseEntity.ok().body(endereco);
+     		return ResponseEntity.ok().body(new EnderecoDTO(endereco));
         	
         } else {
         	return ResponseEntity.badRequest().body("CEP inválido, verifique e tente novamente");
