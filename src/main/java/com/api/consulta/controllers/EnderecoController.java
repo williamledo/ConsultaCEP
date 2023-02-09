@@ -1,7 +1,6 @@
 package com.api.consulta.controllers;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -26,7 +25,7 @@ import jakarta.validation.Valid;
 public class EnderecoController {
 
 	@PostMapping
-    public ResponseEntity cadastrar(@RequestBody @Valid Cep dados) throws Exception {
+    public ResponseEntity consultar(@RequestBody @Valid Cep dados) throws Exception {
 
 		String mascaraCep = dados.cep();
         String cepLimpo = mascaraCep.replaceAll("\\D", "");
