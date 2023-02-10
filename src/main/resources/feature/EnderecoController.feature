@@ -1,7 +1,15 @@
 #language:pt
-Funcionalidade: Teste EnderecoController.consultar()
-Cenário: Testando a funcionalidade do Controller
-Dado recebe um "cep" para fazer a validação
-Quando fizer a validação do "cep"
-Então vou retornar um ResponseEntity com o corpo da requisição ou a mensagem de erro
+
+Funcionalidade: Consulta de endereço pelo CEP
+  Como usuário, eu quero poder consultar o endereço pelo CEP, de forma que eu possa obter informações sobre o endereço.
+
+Cenário: Consulta de endereço com sucesso
+  Dado que eu tenho um CEP válido
+  Quando eu fizer a requisição para consultar o endereço
+  Então eu deveria receber um response com status code 200 e o endereço completo
+
+Cenário: Consulta de endereço inválido
+  Dado que eu tenho um CEP inválido
+  Quando eu fizer a requisição para consultar o endereço
+  Então eu deveria receber um response com status code 400 e a mensagem "CEP inválido, verifique e tente novamente"
 
