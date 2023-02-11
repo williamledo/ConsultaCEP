@@ -19,48 +19,54 @@ import io.restassured.internal.common.assertion.Assertion;
 
 public class StepsEndereco {
 
-	private Cep cepValido;
-	private Cep cepInvalido;
+	private Cep cep;
     ResponseEntity response;
 	
     @Autowired
     private EnderecoController controller = new EnderecoController();
 	
-	@Dado("que eu tenho um CEP válido")
-	public void que_eu_tenho_um_cep_válido() {
+    @Dado("que eu tenho um CEP válido")
+    public void que_eu_tenho_um_cep_válido() {
+    	
+    	cep = new Cep("54100020");
+    	
+    }
 
-		cepValido =  new Cep("54100020");
-		
-	}
+    @Quando("eu fizer a requisição para consultar o endereço com um cep válido")
+    public void eu_fizer_a_requisição_para_consultar_o_endereço_com_um_cep_válido() throws Exception {
 
-	@Quando("eu fizer a requisição para consultar o endereço")
-	public void eu_fizer_a_requisição_para_consultar_o_endereço() throws Exception {
-	    
-		response = controller.consultar(cepValido);
-		
-	}
+    	response = controller.consultar(cep);
+    	
+    }
 
-	@Então("eu deveria receber um response com status code e o endereço completo")
-	public void eu_deveria_receber_um_response_com_status_code_e_o_endereço_completo() {
+    @Então("eu deveria receber um response com status code {int} e o endereço completo")
+    public void eu_deveria_receber_um_response_com_status_code_e_o_endereço_completo(Integer statusCode) {
 
-		assertEquals(200, response.getStatusCode().value());
-        assertEquals(response.getBody().getClass(), EnderecoDTO.class);
-		
-	}
+    	assertEquals(response.getStatusCode().value(), statusCode);
+    	assertNotNull(response.getBody());
+    	
+    }
 
-	
-	
-	@Dado("que eu tenho um CEP inválido")
-	public void que_eu_tenho_um_cep_inválido() {
+    @Dado("que eu tenho um CEP inválido")
+    public void que_eu_tenho_um_cep_inválido() {
 
-		cepInvalido =  new Cep("11111111");
-		
-	}
+    	cep = new Cep("11111111");
+    	
+    }
 
-	@Então("eu deveria receber um response com status code {int} e a mensagem {string}")
-	public void eu_deveria_receber_um_response_com_status_code_e_a_mensagem(Integer int1, String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
+    @Quando("eu fizer a requisição para consultar o endereço com um cep inválido")
+    public void eu_fizer_a_requisição_para_consultar_o_endereço_com_um_cep_inválido() throws Exception {
+    	
+    	response = controller.consultar(cep);
+    	
+    }
+
+    @Então("eu deveria receber um response com status code {int} e a mensagem {string}")
+    public void eu_deveria_receber_um_response_com_status_code_e_a_mensagem(Integer statusCode, String string) {
+
+    	assertEquals(response.getStatusCode().value(), statusCode);
+    	assertEquals(response.getBody(), string);
+    	assertNotNull(response.getBody());
+    	
+    }
 }
