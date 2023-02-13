@@ -7,9 +7,9 @@ API que recebe um CEP e retorna o endereço e o frete para aquela região.
 
 Tecnologias utilizadas:
 
-• Java
-• Spring boot
-• API REST Template
-• Documentação Swagger
-• Testes unitários JUnit5
+• Java<br/>
+• Spring boot<br/>
+• API REST Template<br/>
+• Documentação Swagger<br/>
+• Testes unitários JUnit5<br/>
 • Testes automatizados utilizando cucumber
