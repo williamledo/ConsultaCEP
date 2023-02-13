@@ -14,3 +14,5 @@ Tecnologias utilizadas:
 • Testes unitários JUnit5<br/>
 • Mockito<br/>
 • Testes automatizados utilizando cucumber<br/>
+
+WebService: https://viacep.com.br/
