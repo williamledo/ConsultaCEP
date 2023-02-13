@@ -8,11 +8,11 @@ API que recebe um CEP e retorna o endereço e o frete para aquela região.
 Tecnologias utilizadas:
 
 • Java<br/>
-• Spring boot<br/>
-• API REST Template<br/>
+• Spring Boot<br/>
+• API REST<br/>
 • Documentação Swagger<br/>
 • Testes unitários JUnit5<br/>
 • Mockito<br/>
-• Testes automatizados utilizando cucumber<br/>
+• Cucumber<br/>
 
 WebService: https://viacep.com.br/
