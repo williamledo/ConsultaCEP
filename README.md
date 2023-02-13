@@ -12,4 +12,5 @@ Tecnologias utilizadas:
 • API REST Template<br/>
 • Documentação Swagger<br/>
 • Testes unitários JUnit5<br/>
+• Mockito<br/>
 • Testes automatizados utilizando cucumber<br/>
