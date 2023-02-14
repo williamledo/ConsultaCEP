@@ -20,7 +20,7 @@ import io.restassured.internal.common.assertion.Assertion;
 public class StepsEndereco {
 
 	private Cep cep;
-    ResponseEntity response;
+    private ResponseEntity response;
 	
     @Autowired
     private EnderecoController controller = new EnderecoController();

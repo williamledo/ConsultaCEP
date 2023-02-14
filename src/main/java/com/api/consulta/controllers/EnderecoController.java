@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("consulta")
+@RequestMapping("/consulta")
 public class EnderecoController {
 
 	@PostMapping
